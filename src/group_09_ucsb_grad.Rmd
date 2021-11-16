@@ -5,8 +5,8 @@ date: "11/13/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include = TRUE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 # attach packages
 library(tidyverse)
 library(here)
@@ -22,7 +22,8 @@ ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv"))
 ggplot(data = ucsb_grad, 
        aes(x = year_abbr, y = domestic_enrollment, fill = ethnicity)) +
          geom_col(position = "fill") + # Convert the columns from absolute counts to proportions
-  labs(x = "Year", y = "Domestic Graduate Enrollment", title = "Ethnic Makeup of UCSB Students 2008-2019") # adding a title to the graph
+  labs(x = "Year", y = "Domestic Graduate Enrollment", title = "Ethnic Makeup of UCSB Students 2008-2019") + # adding a title to the graph
+  theme_minimal() # added theme to the graph
 ```
 
 **Fig. 1** shows the proportion of different ethnicities among enrolled students at UCSB from 2008-2019. 
